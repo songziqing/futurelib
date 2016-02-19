@@ -3,6 +3,9 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+        $article = M("Article");
+        $data = $article -> select();
+        $this -> assign("data",$data);
         $this -> display();
     }
 
