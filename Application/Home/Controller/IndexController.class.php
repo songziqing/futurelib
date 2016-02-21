@@ -4,7 +4,7 @@ use Think\Controller;
 class IndexController extends Controller {
     public function index(){
         $article = M("Article");
-        $data = $article -> select();
+        $data = $article -> order('id desc') -> select();
         $this -> assign("data",$data);
         $this -> display();
     }
