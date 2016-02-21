@@ -335,10 +335,13 @@
 			<div class="col-md-4 footer-grid wow bounceIn" data-wow-delay="0.4s">
 			  <h3 style="margin-left:13px;">最新评论</h3>
 			  <ul class="ftr-list">
+			  	<volist name="megs" id="vo">
+			  		<li><a href="#"><{$vo.message}></a><br><span style="color:#818C93;margin-left:15px;"><{$vo.date}></span></li>
+			  	</volist>
+			  <!-- 	<li><a href="#">未来小组，越来越好</a><br><span style="color:#818C93;margin-left:15px;">2016-1-26</span></li>
 			  	<li><a href="#">未来小组，越来越好</a><br><span style="color:#818C93;margin-left:15px;">2016-1-26</span></li>
 			  	<li><a href="#">未来小组，越来越好</a><br><span style="color:#818C93;margin-left:15px;">2016-1-26</span></li>
-			  	<li><a href="#">未来小组，越来越好</a><br><span style="color:#818C93;margin-left:15px;">2016-1-26</span></li>
-			  	<li><a href="#">未来小组，越来越好</a><br><span style="color:#818C93;margin-left:15px;">2016-1-26</span></li>
+			  	<li><a href="#">未来小组，越来越好</a><br><span style="color:#818C93;margin-left:15px;">2016-1-26</span></li> -->
 			  </ul>
 			</div>
 			<div class="col-md-4 footer-grid wow bounceIn" data-wow-delay="0.4s">
