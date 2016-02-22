@@ -23,6 +23,9 @@ class IndexController extends Controller {
     }
 
     public function news(){
+        $new = M('News');
+        $news = $new ->order('id desc') -> select();
+        $this->assign("news",$news);
         $this -> display();
     }
 
