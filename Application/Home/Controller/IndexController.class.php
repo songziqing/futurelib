@@ -70,4 +70,15 @@ class IndexController extends Controller {
             }
         }
     }
+
+    public function leaveMes(){
+       $con = M("Contentus"); // 实例化User对象
+       $data['name'] =$_POST['name'];
+       $data['email'] = $_POST['email'];
+       $data['message'] = $_POST['mesCon'];
+       $data['date'] = time();
+       $result = $con->add($data);
+       echo $result;
+
+    }
 }

@@ -25,6 +25,73 @@
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
 			});
+
+            function leaveMes() {
+                // alert(document.getElementById("name").value);
+                // alert(document.getElementById("email").value);
+                // alert(document.getElementById("mesCon").value);
+                if (document.getElementById('name').value =="Name"){
+                    alert("请输入您的名字！！！");
+                    document.getElementById('name').focus();
+                    // 结束函数执行
+                    return;
+                }
+                var str = document.getElementById("email").value;
+                if(str.length!=0){    
+                    var reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;     
+                    var r = str.match(reg);     
+                    if(r==null) {
+                        alert("请输入正确的邮箱！！！");
+                        document.getElementById('email').focus();
+                        return;
+                    }   
+                } 
+                if (document.getElementById('mesCon').value =="Message"){
+                    alert("请输入联系内容！！！");
+                    document.getElementById('mesCon').focus();
+                    // 结束函数执行
+                    return;
+                }
+               
+                // 向控制器函数发送请求
+                $.post("__URL__/leaveMes", 
+                    { 
+                        name: document.getElementById("name").value,
+                        email: document.getElementById("email").value,
+                        mesCon: document.getElementById("mesCon").value
+                    },
+                // 如果发送成功，利用$.post()的回调函数进行接下来的逻辑操作
+                function(data){
+                    $flag = data;
+                    if($flag){
+                        //发送验证码按钮禁用60秒，60秒后重新启用
+                        alert("感谢您的关注！！！");
+                        disbtn();
+                    }
+                    else
+                    {
+                        alert("出问题了，稍后再试！！！");
+                    }
+                });
+            }
+
+            //发送验证码禁用函数，如果发送成功，禁用按钮60秒，
+        var count = 60;
+        function disbtn() {
+            $("#sub").attr("disabled", true);
+            $("#sub").val(count + "秒之后重新发送")
+            //设置变量，进行计时
+            count--;
+            if (count > 0)
+            {
+                setTimeout(disbtn, 1000);
+            }
+            else{
+                $("#sub").val("发送");
+                $("#sub").attr("disabled", false);
+                count = 60;
+            }
+        } 
 	</script>
 <!-- //end-smoth-scrolling -->
 <!---- animated-css ---->
@@ -74,11 +141,10 @@
 				<p style="font-size:22px">如果您对于我们的作品感兴趣，想加入我们，或者对于我们的不足有什么意见或好的建议欢迎致电说明，或者通过邮箱留言，感谢您的关注！</p>
 			</div>
 			<div class="col-md-12 contact-right footer-grid wow bounceIn" data-wow-delay="0.4s" style="margin-left:60px">
-				<h3>Feed Back</h3>
-				<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}"/>
-				<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"/>
-				<textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}"/>Message</textarea>
-				<input type="submit" value="发送" style="padding: 8px 3em;">
+				<input id="name" type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}"/>
+				<input id="email" type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"/>
+				<textarea id="mesCon" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}"/>Message</textarea>
+				<input id="sub" type="button" onclick="leaveMes()" value="发送" style="padding: 8px 3em;">
 			</div>
 
 			
