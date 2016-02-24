@@ -3,14 +3,14 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-        //查询文章列表，获取最新文章
-        $article = M("Article");
-        $data = $article-> order('id desc') -> select();
-        $this -> assign("data",$data);
-        //查询留言列表，获取最新留言
-        $mes = M("Message");
-        $megs = $mes -> limit(4) -> order('id desc')->field('message,date') ->select();
-        $this -> assign("megs",$megs);
+        // //查询文章列表，获取最新文章
+        // $article = M("Article");
+        // $data = $article-> order('id desc') -> select();
+        // $this -> assign("data",$data);
+        // //查询留言列表，获取最新留言
+        // $mes = M("Message");
+        // $megs = $mes -> limit(4) -> order('id desc')->field('message,date') ->select();
+        // $this -> assign("megs",$megs);
         $this -> display();
     }
 
@@ -79,6 +79,17 @@ class IndexController extends Controller {
        $data['date'] = time();
        $result = $con->add($data);
        echo $result;
+   }
 
-    }
+   public function footer() {
+        //查询文章列表，获取最新文章
+        $article = M("Article");
+        $data = $article-> order('id desc') -> select();
+        $this -> assign("data",$data);
+        //查询留言列表，获取最新留言
+        $mes = M("Message");
+        $megs = $mes -> limit(4) -> order('id desc')->field('message,date') ->select();
+        $this -> assign("megs",$megs);
+        $this->display();
+   }
 }

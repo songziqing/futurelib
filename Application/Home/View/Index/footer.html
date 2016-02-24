@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>主页</title>
+<link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="__PUBLIC__/css/hover.css" rel="stylesheet" media="all">
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }</script>
+<meta name="keywords" content="Lobortis Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--Google Fonts-->
+<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="__PUBLIC__/js/move-top.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+<!-- //end-smoth-scrolling -->
+<!---- animated-css ---->
+		<link href="__PUBLIC__/css/animate.css" rel="stylesheet" type="text/css" media="all">
+		<script src="__PUBLIC__/js/wow.min.js"></script>
+		<script>
+		 new WOW().init();
+		</script>
+<!---- animated-css ---->
+<script src="__PUBLIC__/js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+
+<!--footer start here-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-main">
+			<div class="col-md-4 footer-grid wow bounceIn" data-wow-delay="0.4s">
+			  <h3 style="margin-left:13px;">最新文章</h3>
+			  <ul class="ftr-list">
+			  <volist name="data" id="id">
+			  	<li><a href="#"><{$id.title}></a><br><span style="color:#818C93;margin-left:15px;">2016-1-26</span></li>
+			  	
+			  	</volist>
+			  </ul>
+			</div>
+			<div class="col-md-4 footer-grid wow bounceIn" data-wow-delay="0.4s">
+			  <h3 style="margin-left:13px;">最新评论</h3>
+			  <ul class="ftr-list">
+			  	<volist name="megs" id="vo">
+			  		<li><a href="#"><{$vo.message}></a><br><span style="color:#818C93;margin-left:15px;"><{$vo.date}></span></li>
+			  	</volist>
+			  </ul>
+			</div>
+			<div class="col-md-4 footer-grid wow bounceIn" data-wow-delay="0.4s">
+			  <h3 style="margin-left:13px;">友情链接</h3>
+			  <ul class="ftr-list">
+			  	<li><a href="http://www.imooc.com/" target="_black">慕课网 </a></li>
+			  	<li><a href="http://www.chuanke.com/" target="_black">百度传课</a></li>
+			  	<li><a href="http://www.maizitime.com/pages/ad04/index.html?bdss3=pp_hx_104154" target="_black">麦子学院</a></li>
+			  	<li><a href="http://www.imooc.com/" target="_black">慕课网 </a></li>
+			  	<li><a href="http://www.chuanke.com/" target="_black">百度传课</a></li>
+			  	<li><a href="http://www.maizitime.com/pages/ad04/index.html?bdss3=pp_hx_104154" target="_black">麦子学院</a></li>
+			  	<li><a href="http://www.imooc.com/" target="_black">慕课网 </a></li>
+			  </ul>
+			</div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--footer end here-->
+</body>
+</html>
