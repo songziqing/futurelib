@@ -22,6 +22,14 @@ class IndexController extends Controller {
         $this -> display();
     }
 
+    public function notelist(){
+        $note = M("note");
+        $where["profession"] = $_GET['profession'];
+        $data = $note -> where($where) -> select();
+        $this -> assign("data",$data);
+        $this -> display();
+    }
+
     public function news(){
         $new = M('News');
         $news = $new ->order('id desc') -> select();
