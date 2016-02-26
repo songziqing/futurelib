@@ -23,6 +23,10 @@ class IndexController extends Controller {
     }
 
     public function form(){
+        $note = M("Note");
+        $data = $note -> create();
+        $note->date = date("Y-m-d");
+        $res = $note -> add();
         $this -> display();    
     }
 

@@ -4,6 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="__PUBLIC__/admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/admin/editor/kindeditor.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/js/select-ui.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content7',
+        cssPath : './index.css'
+    });
+  </script>
+<title>Document</title>
 </head>
 
 <body>
@@ -19,20 +29,28 @@
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-    
-    <ul class="forminfo">
-    <li><label>文章标题</label><input name="" type="text" class="dfinput" /><i>标题不能超过30个字符</i></li>
-    <li><label>关键字</label><input name="" type="text" class="dfinput" /><i>多个关键字用,隔开</i></li>
-    <li><label>是否审核</label><cite><input name="" type="radio" value="" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />否</cite></li>
-    <li><label>引用地址</label><input name="" type="text" class="dfinput" value="http://www.uimaker.com/uimakerhtml/uidesign/" /></li>
-    <li><label>文章内容</label><textarea name="" cols="" rows="" class="textinput"></textarea></li>
-    <li><label>&nbsp;</label><input name="" type="button" class="btn" value="确认保存"/></li>
-    </ul>
-    
-    
+        <ul class="forminfo">
+           <form action="<{:U(Admin/Index/form)}>" method="POST">
+                <li><label>文章标题</label><input name="title" type="text" class="dfinput" /><i>标题不能超过30个字符</i></li>
+                <li><label>专业方向</label>
+                    <select name="profession" class="dfinput">
+                        <option value="">--请选择--</option>
+                        <option value="android">安卓</option>
+                        <option value="Web">Web</option>
+                        <option value="PHP">PHP</option>
+                        <option value="美工">美工</option>
+                    </select>             
+                </li>
+                <li><label>引用地址</label><input name="link" type="text" class="dfinput" value="" /></li>
+             
+                <li><label>文章内容</label><textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;"></textarea></li>
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认提交"/></li>
+            </form>
+        </ul>
+  
     </div>
 
-
+    </div>
 </body>
 
 </html>
