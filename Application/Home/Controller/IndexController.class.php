@@ -2,6 +2,17 @@
 namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
+    public function _initialize() {
+        //查询文章列表，获取最新文章
+        $article = M("Article");
+        $data = $article-> order('id desc') -> select();
+        $this -> assign("data",$data);
+        //查询留言列表，获取最新留言
+        $mes = M("Message");
+        $megs = $mes -> limit(4) -> order('id desc')->field('message,date') ->select();
+        $this -> assign("megs",$megs);
+
+    }
     public function index(){
         // //查询文章列表，获取最新文章
         // $article = M("Article");
@@ -11,6 +22,7 @@ class IndexController extends Controller {
         // $mes = M("Message");
         // $megs = $mes -> limit(4) -> order('id desc')->field('message,date') ->select();
         // $this -> assign("megs",$megs);
+        layout(true);
         $this -> display();
     }
 
@@ -89,15 +101,15 @@ class IndexController extends Controller {
        echo $result;
    }
 
-   public function footer() {
-        //查询文章列表，获取最新文章
-        $article = M("Article");
-        $data = $article-> order('id desc') -> select();
-        $this -> assign("data",$data);
-        //查询留言列表，获取最新留言
-        $mes = M("Message");
-        $megs = $mes -> limit(4) -> order('id desc')->field('message,date') ->select();
-        $this -> assign("megs",$megs);
-        $this->display();
-   }
+   // public function footer() {
+   //      //查询文章列表，获取最新文章
+   //      $article = M("Article");
+   //      $data = $article-> order('id desc') -> select();
+   //      $this -> assign("data",$data);
+   //      //查询留言列表，获取最新留言
+   //      $mes = M("Message");
+   //      $megs = $mes -> limit(4) -> order('id desc')->field('message,date') ->select();
+   //      $this -> assign("megs",$megs);
+   //      $this->display();
+   // }
 }
